@@ -60,8 +60,8 @@
     "osImageSKU": "14.04.3-LTS",
     "publicIPAddressName": "myPublicIP",
     "publicIPAddressType": "Dynamic",
-    "customScriptLocation": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/ubuntu-desktop-gnome/",
-    "wgetCommandPrefix": "[concat('wget --tries 20 --retry-connrefused --waitretry=15 -qO- ', variables('customScriptLocation'), 'configure-ubuntu.sh | nohup /bin/bash -s ')]",
+    "customScriptLocation": "https://raw.githubusercontent.com/ckcampbell248/Ubuntu-Gnome-Vnc-PcfDev/master/Ubuntu-Gnome-Vnc-PcfDev/",
+    "wgetCommandPrefix": "[concat('wget --tries 20 --retry-connrefused --waitretry=15 -qO- ', variables('customScriptLocation'), 'configure.sh | nohup /bin/bash -s ')]",
     "wgetCommandPostfix": " > /var/log/azure/firstinstall.log 2>&1 &'",
     "commandPrefix": "/bin/bash -c '",
     "OSDiskName": "osdisk",
@@ -151,17 +151,21 @@
           {
             "name": "ipConfigNode",
             "properties": {
+              "publicIPAddress": {
+                "id": "[resourceId ('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]"
+              },
               "privateIPAllocationMethod": "Static",
               "privateIPAddress": "[concat(split(variables('subnetPrefix'),'0/24')[0], '100')]",
               "subnet": {
                 "id": "[variables('subnetRef')]"
+                }
               }
             }
-          }
-        ]
+          ]
       },
       "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+        "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]"
       ]
     },
     {
