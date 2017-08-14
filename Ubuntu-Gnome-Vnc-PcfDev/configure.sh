@@ -137,5 +137,16 @@ time wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.
 time sudo dpkg -i google-chrome-stable_current_amd64.deb
 time sudo apt-get -y --force-yes install -f
 time rm /tmp/google-chrome-stable_current_amd64.deb
+
+####################
+# Setup VS Code
+####################
+time sudo add-apt-repository pa:ubuntu-desktop/ubuntu-make
+time sudo apt-get update && sudo apt-get install ubuntu-make
+time unmake web visual-studio-code
+
+####################
+# End of config
+####################
 date
 echo "completed ubuntu devbox install on pid $$"
