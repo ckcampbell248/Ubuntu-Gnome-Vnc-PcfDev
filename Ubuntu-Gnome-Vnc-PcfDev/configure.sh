@@ -141,9 +141,22 @@ time rm /tmp/google-chrome-stable_current_amd64.deb
 ####################
 # Setup VS Code
 ####################
-time sudo add-apt-repository pa:ubuntu-desktop/ubuntu-make
-time sudo apt-get update && sudo apt-get install ubuntu-make
-time unmake web visual-studio-code
+time curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+time sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+time sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+time sudo apt-get -y update
+time sudo apt-get -y install code # or code-insiders
+
+####################
+# Setup STS
+####################
+time wget http://download.springsource.com/release/STS/3.9.0.RELEASE/dist/e4.7/spring-tool-suite-3.9.0.RELEASE-e4.7.0-linux-gtk-x86_64.tar.gz
+time tar -xvzf spring-tool-suite-3.9.0.RELEASE-e4.7.0-linux-gtk-x86_64.tar.gz
+
+####################
+# Setup Virtual Box
+####################
+time sudo apt-get -y install virtualbox
 
 ####################
 # End of config
