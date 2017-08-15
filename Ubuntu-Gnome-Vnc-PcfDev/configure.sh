@@ -159,6 +159,11 @@ time tar -xvzf spring-tool-suite-3.9.0.RELEASE-e4.7.0-linux-gtk-x86_64.tar.gz
 time sudo apt-get -y install virtualbox
 
 ####################
+# Download PCFDEV
+####################
+wget -O "pcfdev-v0.26.0+PCF1.10.0-linux.zip" --header "Authorization: Token V4yhs5v2B2NyXtQ3W-MU" https://network.pivotal.io/api/v2/products/pcfdev/releases/4905/product_files/17879/download
+
+####################
 # End of config
 ####################
 date
