@@ -138,6 +138,8 @@ time sudo dpkg -i google-chrome-stable_current_amd64.deb
 time sudo apt-get -y --force-yes install -f
 time rm /tmp/google-chrome-stable_current_amd64.deb
 
+# CKC - Create shortcut
+
 ####################
 # Setup VS Code
 ####################
@@ -153,6 +155,10 @@ time sudo apt-get -y install code # or code-insiders
 time wget http://download.springsource.com/release/STS/3.9.0.RELEASE/dist/e4.7/spring-tool-suite-3.9.0.RELEASE-e4.7.0-linux-gtk-x86_64.tar.gz
 time tar -xvzf spring-tool-suite-3.9.0.RELEASE-e4.7.0-linux-gtk-x86_64.tar.gz
 
+# CKC - Remove downloaded file
+# CKC - Create shortcut
+
+
 ####################
 # Setup Virtual Box
 ####################
@@ -162,6 +168,11 @@ time sudo apt-get -y install virtualbox
 # Download PCFDEV
 ####################
 time wget -O "pcfdev-v0.26.0+PCF1.10.0-linux.zip" --header "Authorization: Token V4yhs5v2B2NyXtQ3W-MU" https://network.pivotal.io/api/v2/products/pcfdev/releases/4905/product_files/17879/download
+
+# CKC - Unzip downloaded file
+# CKC - Remove downloaded file
+# CKC - Install into Virtual Box
+
 
 ####################
 # End of config
